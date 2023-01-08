@@ -1,0 +1,51 @@
+version: "3.3"
+#networks:
+#  symfony:
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8000:80"
+      - "4433:443"
+#    networks:
+#      symfony:
+    volumes:
+      - ./app:/var/www/html
+    # links:
+    #     - php
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    ports:
+      - "9004:9000"
+    volumes:
+      - ./app:/var/www/html
+#    networks:
+#      symfony:
+  mariadb:
+    build:
+      context: .
+      dockerfile: docker/mariadb/Dockerfile
+    ports:
+      - "3301:3306"
+    environment:
+     - "MYSQL_ROOT_PASSWORD=1"
+     - "MYSQL_USER=admin"
+     - "MYSQL_PASSWORD=1"
+     - "MYSQL_DATABASE=my_app"
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 1
+    ports:
+      - "27011:27017"
+  mail:
+    image: schickling/mailcatcher
+    ports:
+      - 1080:1080
+      - 1025:1025
+
