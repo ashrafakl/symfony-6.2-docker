@@ -7,6 +7,13 @@ RUN apt-get update --fix-missing && apt-get install -y \
 	&& docker-php-ext-install -j$(nproc) gd
 RUN apt-get install -y git libxml2-dev libzip-dev libicu-dev libssl-dev
 RUN apt-get install apt-utils -y
+###  DEBIAN_FRONTEND=noninteractive see https://github.com/moby/moby/issues/4032
+RUN echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | tee /etc/apt/sources.list.d/symfony-cli.list \
+    && apt-get update -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install symfony-cli -y
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get update -y \
+    && apt-get install nodejs -y
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) intl
 RUN docker-php-ext-configure bcmath \

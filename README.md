@@ -1,4 +1,13 @@
-# A Docker-based installer for PHP 8.2 applications with HTTPS support.
+# A Docker-based installer for symfony6.2 applications with HTTPS support.
+
+This is a start point, not sll Symfony bundles are installed.
+Symfony application are created using 
+```console
+composer create-project symfony/skeleton:"6.2.*" my_project_directory
+```
+In this version `Doctrine` are not installed or configured   
+Start the application then type https://localhost:4433 in browser
+The local domain in Nginx configuration `my-app.local` to access it from any browser, add 127.0.0.1 my-app.local in hosts file, 
 
 ## Installed Services
 - PHP8.2-fpm

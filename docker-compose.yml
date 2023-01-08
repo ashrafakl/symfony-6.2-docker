@@ -12,7 +12,7 @@ services:
 #    networks:
 #      symfony:
     volumes:
-      - ./app:/var/www/html
+      - .:/var/www/html
     # links:
     #     - php
   php:
@@ -22,7 +22,7 @@ services:
     ports:
       - "9004:9000"
     volumes:
-      - ./app:/var/www/html
+      - .:/var/www/html
 #    networks:
 #      symfony:
   mariadb:
