@@ -25,23 +25,28 @@ Start application:
 ```console
 make start
 ```
-Stop application:   
-```console
-make stop
-```
+
 Start application:   
 ```console
 make start
 ```
+
+Stop application:
+```console
+make stop
+```
+
 Composer Install:
 ```console
 make install
 ```
+
 Update Composer:      
 ```console
 make update-composer
 ```
-Login to docker container:   
+
+Login to docker containers:   
 ```console
 make ssh-php
 make ssh-web
