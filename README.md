@@ -26,11 +26,6 @@ Start application:
 make start
 ```
 
-Start application:   
-```console
-make start
-```
-
 Stop application:
 ```console
 make stop
