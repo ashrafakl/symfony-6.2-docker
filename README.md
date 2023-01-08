@@ -5,6 +5,7 @@
 - Nginx
 - MariaDB 
 - MongoDB
+- Mailcatcher
 
 ## Installed PHP extensions
 - Default extensions installed by PHP8.2-fpm plus
